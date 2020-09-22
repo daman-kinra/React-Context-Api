@@ -3,13 +3,13 @@ import {Hello} from './MovieContext'
 
 function AddMovie() {
     const [name, setName] = useState('');
-    const [movie, setMovie] = useContext(Hello);
+    const [user, setUser] = useContext(Hello);
     const update = (e) =>{
         setName(e.target.value);
     }
     const add = (e) =>{
         e.preventDefault();
-        setMovie(prev => {
+        setUser(prev => {
             
             return ({...prev, name: name})
         })
