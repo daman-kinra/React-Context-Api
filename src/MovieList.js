@@ -4,15 +4,10 @@ import { Hello } from './MovieContext'
 
 
 function MovieList() {
-    const [movie, setMovie] = useContext(Hello);
-
+    const [user, setUser] = useContext(Hello);
     return (
         <div>
-            {movie.map(item =>{
-                return(
-                <Movie name={item.name} price={item.price} id={item.id} key={item.id}/>
-                )
-            })}
+            <Movie name={user.login} id={user.id} url={user.avatar_url} naam={user.name}/>
         </div>
     )
 }

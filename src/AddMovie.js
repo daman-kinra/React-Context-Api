@@ -9,12 +9,16 @@ function AddMovie() {
     }
     const add = (e) =>{
         e.preventDefault();
-        setMovie(prev => [...prev, {name:name}])
+        setMovie(prev => {
+            
+            return ({...prev, name: name})
+        })
+        setName('')
     }
     return (
         <div>
             <form onSubmit={add}>
-                <input type="text" name="name" onChange={update}/>
+                <input type="text" name="name" onChange={update} value={name}/>
                 <button type="Submit">click</button>
             </form>
         </div>

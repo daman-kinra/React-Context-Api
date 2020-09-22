@@ -1,29 +1,21 @@
-import React, {useState, createContext} from 'react';
+import React, {useState, createContext, useEffect} from 'react';
 import uuid from 'uuid/dist/v4';
 
 export const Hello = createContext();
 
  export const MovieContext = (props) => {
-    const [movie, setMovie] = useState([
-        {
-            name: 'Daman',
-            price: '40$',
-            id: uuid()
-        },
-        {
-            name: 'Aayush',
-            price: '50$',
-            id: uuid()
-        },
-        {
-            name: 'Ravi',
-            price: '60$',
-            id: uuid()
-        }
-    ])
+    const [user, setUser] = useState({})
+    const [aaa, setaaa] = useState('')
+    useEffect(()=>{
+        fetch('https://api.github.com/users/daman-kinra')
+        .then(res=>res.json())
+        .then(data =>{
+            setUser(data);
+        })
+    },[aaa])
     return (
         <div>
-            <Hello.Provider value={[movie, setMovie]}>
+            <Hello.Provider value={[user, setUser]}>
                 {props.children}
             </Hello.Provider>
         </div>

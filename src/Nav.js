@@ -6,7 +6,7 @@ function NAv() {
     return (
         <div>
           <h3>XcLass</h3>  
-          <p>{'Total Movies:'}{movie.length}</p>
+          <p>{'Total Repos:'}{movie.public_repos}</p>
         </div>
     )
 }
