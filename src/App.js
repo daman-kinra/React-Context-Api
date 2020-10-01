@@ -1,21 +1,27 @@
-import React from 'react';
-import './app.css';
-import MovieList from './MovieList';
-import Nav from './Nav';
-import { MovieContext } from './MovieContext';
-import AddMovie from './AddMovie';
-
-
+import React, {useState} from 'react'
+import {ContextFunc} from './ContextFunc'
+import List from './List'
 function App() {
-    
+    const [input, setInput] = useState('');
+    const [name, setName] = useState('');
+    const [user, setUser] = useState({name: 'Hello', age: 20})
+    const handleInput = () =>{
+            setInput(name);  
+            setName('');
+    }
     return (
-        <MovieContext>
-        <div className='App'>
-            <Nav />
-            <MovieList  />
-            <AddMovie />
+        <div>
+            <input type="text"
+            value={name}
+            onChange={e=>setName(e.target.value)}
+            />
+            <button onClick={handleInput}>Click</button>
+        <ContextFunc input={input} user={user}>
+        
+             <List />
+
+        </ContextFunc>
         </div>
-        </MovieContext>
     )
 }
 
